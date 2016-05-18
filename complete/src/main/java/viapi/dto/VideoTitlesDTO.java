@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerialDTO {
+public class VideoTitlesDTO {
     public String shortTitle;
     public String fullTitle;
     public URL serialUrl;
