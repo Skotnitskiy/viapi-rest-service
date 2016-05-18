@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 import viapi.dto.VideoTitlesDTO;
+import viapi.enumerations.Sort;
 import viapi.service.interfaces.IVideoTitlesService;
 
 import java.io.IOException;
@@ -21,12 +22,12 @@ public class VideoTitlesService implements IVideoTitlesService {
     private String fsUrl = "http://fs.to";
 
     @Override
-    public List<VideoTitlesDTO> getVideoTitles(String pageNumber) {
+    public List<VideoTitlesDTO> getVideoTitles(String pageNumber, String sort) {
         List<VideoTitlesDTO> videoTitlesDTOs = new ArrayList<>();
         VideoTitlesDTO videoTitlesDTO;
         Document doc;
         try {
-            doc = Jsoup.connect(serialsUrl).data("page", pageNumber).get();
+            doc = Jsoup.connect(serialsUrl).data("page", pageNumber, "sort", sort).get();
             Elements serialsLinks = doc.select(".b-poster-tile__link");
             for (Element link : serialsLinks) {
                 videoTitlesDTO = new VideoTitlesDTO();

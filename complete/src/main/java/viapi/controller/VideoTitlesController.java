@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import viapi.dto.VideoTitlesDTO;
+import viapi.enumerations.Sort;
 import viapi.service.interfaces.IVideoTitlesService;
 
 import java.util.List;
@@ -15,7 +16,8 @@ public class VideoTitlesController {
     IVideoTitlesService videoTitlesService;
 
     @RequestMapping("/serials")
-    public List<VideoTitlesDTO> videoTitles(@RequestParam(name = "page", defaultValue = "0") String pageNumber) {
-        return videoTitlesService.getVideoTitles(pageNumber);
+    public List<VideoTitlesDTO> videoTitles(@RequestParam(name = "page", defaultValue = "0") String pageNumber,
+                                            @RequestParam(name = "sort", defaultValue = Sort.TREND) String sort) {
+        return videoTitlesService.getVideoTitles(pageNumber, sort);
     }
 }
