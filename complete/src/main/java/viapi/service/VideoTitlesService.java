@@ -21,12 +21,12 @@ public class VideoTitlesService implements IVideoTitlesService {
     private String fsUrl = "http://fs.to";
 
     @Override
-    public List<VideoTitlesDTO> getVideoTitles(Integer pageNumber) {
-        List<VideoTitlesDTO> videoTitlesDTOs = new ArrayList<VideoTitlesDTO>();
+    public List<VideoTitlesDTO> getVideoTitles(String pageNumber) {
+        List<VideoTitlesDTO> videoTitlesDTOs = new ArrayList<>();
         VideoTitlesDTO videoTitlesDTO;
         Document doc;
         try {
-            doc = Jsoup.connect(serialsUrl).get();
+            doc = Jsoup.connect(serialsUrl).data("page", pageNumber).get();
             Elements serialsLinks = doc.select(".b-poster-tile__link");
             for (Element link : serialsLinks) {
                 videoTitlesDTO = new VideoTitlesDTO();

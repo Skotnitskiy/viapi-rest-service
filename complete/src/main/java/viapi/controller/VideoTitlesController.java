@@ -15,7 +15,7 @@ public class VideoTitlesController {
     IVideoTitlesService videoTitlesService;
 
     @RequestMapping("/serials")
-    public List<VideoTitlesDTO> videoTitles(@RequestParam(name = "page", defaultValue = "0") Integer pageNumber) {
+    public List<VideoTitlesDTO> videoTitles(@RequestParam(name = "page", defaultValue = "0") String pageNumber) {
         return videoTitlesService.getVideoTitles(pageNumber);
     }
 }
