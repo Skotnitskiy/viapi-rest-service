@@ -21,7 +21,7 @@ public class VideoTitlesService implements IVideoTitlesService {
     private String fsUrl = "http://fs.to";
 
     @Override
-    public List<VideoTitlesDTO> getVideoTitles() {
+    public List<VideoTitlesDTO> getVideoTitles(Integer pageNumber) {
         List<VideoTitlesDTO> videoTitlesDTOs = new ArrayList<VideoTitlesDTO>();
         VideoTitlesDTO videoTitlesDTO;
         Document doc;
