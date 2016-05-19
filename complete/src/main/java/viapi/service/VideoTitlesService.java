@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
+import viapi.constants.Req;
 import viapi.dto.VideoTitlesDTO;
 import viapi.service.interfaces.IVideoTitlesService;
 
@@ -17,23 +18,20 @@ import java.util.stream.Collectors;
 @Service
 public class VideoTitlesService implements IVideoTitlesService {
 
-    private String serialsUrl = "http://fs.to/video/serials/";
-    private String fsUrl = "http://fs.to";
-
     @Override
     public List<VideoTitlesDTO> getVideoTitles(String pageNumber, String sort) {
         List<VideoTitlesDTO> videoTitlesDTOs = new ArrayList<>();
         VideoTitlesDTO videoTitlesDTO;
         Document doc;
         try {
-            doc = Jsoup.connect(serialsUrl).data("page", pageNumber, "sort", sort).get();
+            doc = Jsoup.connect(Req.SERIALS_URL).data("page", pageNumber, "sort", sort).get();
             Elements serialsLinks = doc.select(".b-poster-tile__link");
             for (Element link : serialsLinks) {
                 videoTitlesDTO = new VideoTitlesDTO();
                 videoTitlesDTO.shortTitle = link.select(".b-poster-tile__title-short").text();
                 videoTitlesDTO.fullTitle = link.select(".b-poster-tile__title-full").text();
-                videoTitlesDTO.serialUrl = new URL(fsUrl + link.attr("href"));
-                videoTitlesDTO.imageUrl = new URL("http:" + link.select(".b-poster-tile__image img[src]").attr("src"));
+                videoTitlesDTO.serialUrl = link.attr("href");
+                videoTitlesDTO.imageUrl = link.select(".b-poster-tile__image img[src]").attr("src");
                 videoTitlesDTO.titleInfoItem = link.select(".b-poster-tile__title-info-items").text();
                 videoTitlesDTO.titleInfoVotePositive = link.select(".b-poster-tile__title-info-vote-positive").text();
                 videoTitlesDTO.titleInfoVoteNegative = link.select(".b-poster-tile__title-info-vote-negative").text();
