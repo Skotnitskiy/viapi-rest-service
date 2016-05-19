@@ -5,7 +5,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
-import viapi.constants.Req;
 import viapi.dtos.VideoTitlesDTO;
 import viapi.services.interfaces.IVideoTitlesService;
 
@@ -23,7 +22,7 @@ public class VideoTitlesService implements IVideoTitlesService {
         VideoTitlesDTO videoTitlesDTO;
         Document doc;
         try {
-            doc = Jsoup.connect(Req.SERIALS_URL).data("page", pageNumber, "sort", sort).get();
+            doc = Jsoup.connect(videoUrl).data("page", pageNumber, "sort", sort).get();
             Elements serialsLinks = doc.select(".b-poster-tile__link");
             for (Element link : serialsLinks) {
                 videoTitlesDTO = new VideoTitlesDTO();

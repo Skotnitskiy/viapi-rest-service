@@ -18,8 +18,14 @@ public class VideoTitlesController {
     IVideoTitlesService videoTitlesService;
 
     @RequestMapping(value = "/serials", method = RequestMethod.GET)
-    public List<VideoTitlesDTO> videoTitles(@RequestParam(name = "page", defaultValue = "0") String pageNumber,
-                                            @RequestParam(name = "sort", defaultValue = Sort.TREND) String sort) {
+    public List<VideoTitlesDTO> videoTitlesSerials(@RequestParam(name = "page", defaultValue = "0") String pageNumber,
+                                                   @RequestParam(name = "sort", defaultValue = Sort.TREND) String sort) {
         return videoTitlesService.getVideoTitles(pageNumber, sort, Req.SERIALS_URL);
+    }
+
+    @RequestMapping(value = "/films", method = RequestMethod.GET)
+    public List<VideoTitlesDTO> videoTitlesFilms(@RequestParam(name = "page", defaultValue = "0") String pageNumber,
+                                                 @RequestParam(name = "sort", defaultValue = Sort.TREND) String sort) {
+        return videoTitlesService.getVideoTitles(pageNumber, sort, Req.FILMS_URL);
     }
 }
