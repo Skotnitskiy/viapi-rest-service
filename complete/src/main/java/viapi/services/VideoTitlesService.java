@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class VideoTitlesService implements IVideoTitlesService {
+    //TODO: need method for setting request parameters and connect URLs
 
     @Override
     public List<VideoTitlesDTO> getVideoTitles(String pageNumber, String sort, String videoUrl) {
@@ -23,8 +24,8 @@ public class VideoTitlesService implements IVideoTitlesService {
         Document doc;
         try {
             doc = Jsoup.connect(videoUrl).data("page", pageNumber, "sort", sort).get();
-            Elements serialsLinks = doc.select(".b-poster-tile__link");
-            for (Element link : serialsLinks) {
+            Elements titlesLinks = doc.select(".b-poster-tile__link");
+            for (Element link : titlesLinks) {
                 videoTitlesDTO = new VideoTitlesDTO();
                 videoTitlesDTO.shortTitle = link.select(".b-poster-tile__title-short").text();
                 videoTitlesDTO.fullTitle = link.select(".b-poster-tile__title-full").text();
