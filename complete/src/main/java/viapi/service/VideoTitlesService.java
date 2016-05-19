@@ -6,7 +6,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 import viapi.dto.VideoTitlesDTO;
-import viapi.enumerations.Sort;
 import viapi.service.interfaces.IVideoTitlesService;
 
 import java.io.IOException;

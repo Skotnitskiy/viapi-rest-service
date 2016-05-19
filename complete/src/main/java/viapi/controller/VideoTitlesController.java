@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import viapi.dto.VideoTitlesDTO;
-import viapi.enumerations.Sort;
+import viapi.constants.Sort;
 import viapi.service.interfaces.IVideoTitlesService;
 
 import java.util.List;

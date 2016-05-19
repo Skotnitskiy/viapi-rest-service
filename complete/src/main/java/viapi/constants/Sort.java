@@ -1,4 +1,4 @@
-package viapi.enumerations;
+package viapi.constants;
 
 
 public class Sort {
