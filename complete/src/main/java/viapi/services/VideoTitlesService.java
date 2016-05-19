@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class VideoTitlesService implements IVideoTitlesService {
 
     @Override
-    public List<VideoTitlesDTO> getVideoTitles(String pageNumber, String sort) {
+    public List<VideoTitlesDTO> getVideoTitles(String pageNumber, String sort, String videoUrl) {
         List<VideoTitlesDTO> videoTitlesDTOs = new ArrayList<>();
         VideoTitlesDTO videoTitlesDTO;
         Document doc;
