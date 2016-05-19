@@ -6,7 +6,7 @@ import java.util.List;
 public class VideoTitlesDTO {
     public String shortTitle;
     public String fullTitle;
-    public String serialUrl;
+    public String titleUrl;
     public String imageUrl;
     public String titleInfoItem;
     public String titleInfoVotePositive;

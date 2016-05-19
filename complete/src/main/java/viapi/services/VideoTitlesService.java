@@ -28,7 +28,7 @@ public class VideoTitlesService implements IVideoTitlesService {
                 videoTitlesDTO = new VideoTitlesDTO();
                 videoTitlesDTO.shortTitle = link.select(".b-poster-tile__title-short").text();
                 videoTitlesDTO.fullTitle = link.select(".b-poster-tile__title-full").text();
-                videoTitlesDTO.serialUrl = link.attr("href");
+                videoTitlesDTO.titleUrl = link.attr("href");
                 videoTitlesDTO.imageUrl = link.select(".b-poster-tile__image img[src]").attr("src");
                 videoTitlesDTO.titleInfoItem = link.select(".b-poster-tile__title-info-items").text();
                 videoTitlesDTO.titleInfoVotePositive = link.select(".b-poster-tile__title-info-vote-positive").text();
