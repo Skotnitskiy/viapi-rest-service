@@ -1,4 +1,4 @@
-package viapi.service;
+package viapi.services;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -6,11 +6,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 import viapi.constants.Req;
-import viapi.dto.VideoTitlesDTO;
-import viapi.service.interfaces.IVideoTitlesService;
+import viapi.dtos.VideoTitlesDTO;
+import viapi.services.interfaces.IVideoTitlesService;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

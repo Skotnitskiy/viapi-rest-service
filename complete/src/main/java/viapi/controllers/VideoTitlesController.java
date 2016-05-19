@@ -1,13 +1,13 @@
-package viapi.controller;
+package viapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import viapi.dto.VideoTitlesDTO;
+import viapi.dtos.VideoTitlesDTO;
 import viapi.constants.Sort;
-import viapi.service.interfaces.IVideoTitlesService;
+import viapi.services.interfaces.IVideoTitlesService;
 
 import java.util.List;
 

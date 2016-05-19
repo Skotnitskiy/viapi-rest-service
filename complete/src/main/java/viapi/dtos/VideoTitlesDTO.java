@@ -1,4 +1,4 @@
-package viapi.dto;
+package viapi.dtos;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package viapi.service.interfaces;
+package viapi.services.interfaces;
 
-import viapi.dto.VideoTitlesDTO;
+import viapi.dtos.VideoTitlesDTO;
 
 import java.util.List;
 
