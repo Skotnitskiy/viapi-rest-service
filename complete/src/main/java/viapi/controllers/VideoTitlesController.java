@@ -28,4 +28,10 @@ public class VideoTitlesController {
                                                  @RequestParam(name = "sort", defaultValue = Sort.TREND) String sort) {
         return videoTitlesService.getVideoTitles(pageNumber, sort, Req.FILMS_URL);
     }
+
+    @RequestMapping(value = "/cartoons", method = RequestMethod.GET)
+    public List<VideoTitlesDTO> videoTitlesCartoons(@RequestParam(name = "page", defaultValue = "0") String pageNumber,
+                                                    @RequestParam(name = "sort", defaultValue = Sort.TREND) String sort) {
+        return videoTitlesService.getVideoTitles(pageNumber, sort, Req.CARTOONS_URL);
+    }
 }
