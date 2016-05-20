@@ -24,9 +24,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-jetty</artifactId>
+         </dependency> !-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>
@@ -44,6 +49,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <outputDirectory>target</outputDirectory>
+                    <warName>ROOT</warName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
